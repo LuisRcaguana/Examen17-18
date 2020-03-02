@@ -11,15 +11,18 @@ import uem.dam.examen17_18.Data.Country;
 
 public interface ApiCdsService {
 
-    public static final String BASE_URL = "http://10.0.2.2host:3000/";
+    public static final String BASE_URL = "http://10.0.2.2:3000/";
 
     @GET("cds")
     Call<ArrayList<Cd>> obtenerCds();
 
     @GET("cds")
     Call<ArrayList<Cd>> obtenerCdsPorTitulo(@Query("title") String titulo);
+    // Call<ArrayList<Cd>> obtenerCdsPorTitulo(@Query("title") String titulo,@Query("anio") String anio);
 
     @GET("countries/(id_country)")
     Call<Country> obtenePais(@Path("id_country")String pais);
 
 }
+//  [ arraylist
+//{ objeto

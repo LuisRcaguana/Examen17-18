@@ -12,6 +12,7 @@ import uem.dam.examen17_18.RetrofitUtil.ApiCdsService;
 import uem.dam.examen17_18.RetrofitUtil.RetrofitClient;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -71,12 +72,15 @@ public class CDActivity extends AppCompatActivity {
 
                     obtenerPais(pais);
 
+                }else{
+                    Log.e("onResponse", "onbetnerCdPorTItulo: " + response.code());
                 }
 
             }
 
             @Override
             public void onFailure(Call<ArrayList<Cd>> call, Throwable t) {
+                Log.e("onResponse", "onbetnerCdPorTItulo: " + t.getMessage());
 
             }
         });
@@ -102,13 +106,38 @@ public class CDActivity extends AppCompatActivity {
                     Country country = response.body();
                     String flag = country.getFlag();
 
+
+                    switch (flag){
+                        case"australia":
+                            ivBan.setImageResource(R.drawable.australia);
+                        break;
+                        case"denmark":
+                            ivBan.setImageResource(R.drawable.denmark);
+                            break;
+                        case"itlay":
+                            ivBan.setImageResource(R.drawable.italy);
+                            break;
+                        case"spain":
+                            ivBan.setImageResource(R.drawable.spain);
+                            break;
+                        case"uk":
+                            ivBan.setImageResource(R.drawable.uk);
+                            break;
+                        case"usa":
+                            ivBan.setImageResource(R.drawable.usa);
+                            break;
+
+                    }
+
                 }else {
+                    Log.e("onResponse", "onbetnerPais " + response.code());
 
                 }
             }
 
             @Override
             public void onFailure(Call<Country> call, Throwable t) {
+                Log.e("onResponse", "onbetnerPais: " + t.getMessage());
 
             }
         });
