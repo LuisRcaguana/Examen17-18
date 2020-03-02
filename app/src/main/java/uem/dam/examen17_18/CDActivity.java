@@ -127,6 +127,8 @@ public class CDActivity extends AppCompatActivity {
                             ivBan.setImageResource(R.drawable.usa);
                             break;
 
+
+
                     }
 
                 }else {
